@@ -1,14 +1,48 @@
 {
   "currency": "ron",
-  "freeShippingFrom": 25000,
-  "shippingFee": 1500,
   "maxQtyPerLine": 10,
+  "contact": {
+    "whatsapp": "40793939534",
+    "phoneDisplay": "+40 793 939 534"
+  },
+  "bankTransfer": {
+    "beneficiary": "SENEVA SRL",
+    "iban": "RO17 UGBI 0000 4520 3661 2RON"
+  },
   "products": [
     {
       "id": "colagen-30",
-      "name": "Collagen5 – peptide de colagen bovin, pulbere – 30 de porții",
+      "name": "Collagen5 – peptide de colagen bovin, pulbere – 1 pachet (30 de porții)",
+      "units": 1,
       "price": 13900,
       "compareAt": 19000,
+      "image": "/img/collagen5-can.jpg",
+      "stripeImage": "/img/collagen5-can.jpg"
+    },
+    {
+      "id": "colagen-30-x2",
+      "name": "Collagen5 – Set 2 pachete (2 × 30 de porții), -5%",
+      "units": 2,
+      "price": 26400,
+      "compareAt": 27800,
+      "image": "/img/collagen5-can.jpg",
+      "stripeImage": "/img/collagen5-can.jpg"
+    },
+    {
+      "id": "colagen-30-x3",
+      "name": "Collagen5 – Set 3 pachete (3 × 30 de porții), -10%",
+      "units": 3,
+      "price": 37500,
+      "compareAt": 41700,
+      "image": "/img/collagen5-can.jpg",
+      "stripeImage": "/img/collagen5-can.jpg"
+    },
+    {
+      "id": "colagen-30-x5",
+      "name": "Collagen5 – Set 5 pachete (5 × 30 de porții), -15%",
+      "units": 5,
+      "price": 59000,
+      "compareAt": 69500,
       "image": "/img/collagen5-can.jpg",
       "stripeImage": "/img/collagen5-can.jpg"
     }

@@ -47,12 +47,10 @@ export async function onRequestPost({ request, env }) {
     `Prin plasarea comenzii accepți [Termenii și condițiile](${origin}/termeni.html) și [Politica de livrare și retur](${origin}/livrare-retur.html).`,
   );
 
-  let subtotal = 0;
   let i = 0;
   const summary = [];
   for (const [id, qty] of qtyById) {
     const p = byId.get(id);
-    subtotal += p.price * qty;
     summary.push(`${id} x${qty}`);
     const k = `line_items[${i++}]`;
     params.set(`${k}[quantity]`, String(qty));
@@ -64,13 +62,10 @@ export async function onRequestPost({ request, env }) {
   }
   params.set('metadata[items]', summary.join(', ').slice(0, 480));
 
-  const free = subtotal >= catalog.freeShippingFrom;
+  // Transportul prin DPD este inclus în preț (livrare la adresă, gratuită pentru client)
   params.set('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
-  params.set(
-    'shipping_options[0][shipping_rate_data][display_name]',
-    free ? 'Livrare gratuită prin curier' : 'Livrare prin curier',
-  );
-  params.set('shipping_options[0][shipping_rate_data][fixed_amount][amount]', free ? '0' : String(catalog.shippingFee));
+  params.set('shipping_options[0][shipping_rate_data][display_name]', 'Livrare gratuită prin DPD, la adresă');
+  params.set('shipping_options[0][shipping_rate_data][fixed_amount][amount]', '0');
   params.set('shipping_options[0][shipping_rate_data][fixed_amount][currency]', catalog.currency);
   params.set('shipping_options[0][shipping_rate_data][tax_behavior]', 'inclusive');
   params.set('shipping_options[0][shipping_rate_data][delivery_estimate][minimum][unit]', 'business_day');
