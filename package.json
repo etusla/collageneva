@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "wrangler pages dev public",
+    "dev:worker": "wrangler dev --config wrangler.worker.toml",
+    "deploy:worker": "wrangler deploy --config wrangler.worker.toml",
     "deploy": "wrangler pages deploy public --project-name colara-shop"
   },
   "devDependencies": {
