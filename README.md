@@ -1,4 +1,4 @@
-# Colara – kolajen mağazası (Cloudflare Pages + Stripe Checkout)
+# Eva Cosmetic – kolajen mağazası (Cloudflare Pages + Stripe Checkout)
 
 Statik site (`public/`) + tek bir Cloudflare Pages Function (`functions/api/checkout.js`).
 Sepet tarayıcıda (localStorage) tutulur; "Finalizează comanda" butonu `/api/checkout`'u çağırır,
@@ -28,8 +28,8 @@ Test kartı: `4242 4242 4242 4242`, herhangi bir gelecek tarih ve CVC.
 ## Canlıya çıkmadan önce doldurulacaklar
 
 - `[DENUMIRE FIRMĂ]`, `[CUI]`, `[Nr. Reg. Com.]`, adres, telefon, `contact@example.ro` — `index.html`, `termeni.html`, `confidentialitate.html`, `livrare-retur.html`, `success.html` içinde.
-- `public/img/product.svg` yer tutucu bir illüstrasyon. Kendi ürün fotoğraflarını koy (Trendyol görsellerini kopyalama; telif hakkı satıcıya/markaya aittir).
-  Stripe ödeme sayfasında görsel görünmesi için PNG/JPG koy ve `catalog.json` ürününe `"stripeImage": "/img/urun.png"` ekle.
+- `public/img/collagen5-can.jpg` ürün kutusu fotoğrafı (Trendyol ürün sayfasından kırpıldı; dağıtıcı olarak kullanım hakkın olduğunu varsayıyoruz). Stripe ödeme sayfasındaki görsel `catalog.json` içindeki `stripeImage` alanından gelir.
+  Trendyol'daki diğer görselleri bilerek kullanmadık: cilt/kemik/saç gibi AB'de onaysız sağlık iddiaları ve süresi 30.01.2025'te dolmuş sertifikalar içeriyorlar.
 - Ürün etiketindeki gerçek bilgiler: içerik, porsiyon/günlük doz, besin değerleri, alerjenler, üretici/ithalatçı, parti/SKT. Site metni şu an dozu "etikete göre" diye bırakıyor.
 - Fiyat/kargo: `public/catalog.json` (kuruş cinsinden: `13900` = 139 lei; `freeShippingFrom`, `shippingFee`). Ücretsiz kargo metinleri `index.html` ve `livrare-retur.html` içinde de geçiyor; değiştirirsen oralarda da güncelle.
 
