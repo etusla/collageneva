@@ -164,14 +164,23 @@ function facts() {
   return `          <p class="facts"><strong>Pe scurt:</strong> Collagen5 este un supliment alimentar sub formă de pulbere, cu peptide de colagen bovin dublu hidrolizat (tipurile I, II, III, V, X) și complex de vitamine, într-un pachet de 30 de porții. Se vinde în România de ${cfg.legalName} (${cfg.siteName}). Preț: ${lei(p1.price)} pentru 1 pachet, ${lei(p2.price)} pentru setul de 2 (-5%), ${lei(p3.price)} pentru setul de 3 (-10%), ${lei(p5.price)} pentru setul de 5 (-15%), TVA inclus. Livrare gratuită prin DPD în 2–4 zile lucrătoare, plată cu cardul sau transfer bancar, retur în 14 zile.</p>`;
 }
 
+function priceText() {
+  const [p1, p2, p3, p5] = catalog.products;
+  return `Collagen5 costă ${lei(p1.price)} pentru 1 pachet (30 de porții), ${lei(p2.price)} pentru setul de 2 pachete, ${lei(p3.price)} pentru setul de 3 pachete și ${lei(p5.price)} pentru setul de 5 pachete.`;
+}
+
 for (const page of pages) {
   const f = path.join(pub, page.file);
   if (!fs.existsSync(f)) continue;
   let html = read(page.file);
   html = replaceBlock(html, 'SEO', seoHead(page, html));
   if (page.file === 'index.html') {
-    html = replaceBlock(html, 'JSONLD', jsonLd());
+    // Fiyat metni, JSON-LD (FAQ) üretilmeden ÖNCE HTML'e işlenmeli
+    html = html.replace(/<!--PRICES:BEGIN-->[\s\S]*?<!--PRICES:END-->/, `<!--PRICES:BEGIN-->${priceText()}<!--PRICES:END-->`);
+    write(page.file, html);
     html = replaceBlock(html, 'FACTS', facts());
+    write(page.file, html);
+    html = replaceBlock(html, 'JSONLD', jsonLd());
   }
   write(page.file, html);
 }
