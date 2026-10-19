@@ -1,0 +1,15 @@
+{
+  "currency": "ron",
+  "freeShippingFrom": 25000,
+  "shippingFee": 1500,
+  "maxQtyPerLine": 10,
+  "products": [
+    {
+      "id": "colagen-30",
+      "name": "Colagen bovin hidrolizat, pulbere – 30 de porții",
+      "price": 13900,
+      "compareAt": 19000,
+      "image": "/img/product.svg"
+    }
+  ]
+}

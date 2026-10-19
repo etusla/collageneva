@@ -1,0 +1,12 @@
+{
+  "name": "colara-shop",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name colara-shop"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
