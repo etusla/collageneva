@@ -36,7 +36,7 @@ export async function onRequestPost({ request, env }) {
   const params = new URLSearchParams();
   params.set('mode', 'payment');
   params.set('locale', 'ro');
-  params.set('success_url', `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
+  params.set('success_url', `${origin}/success?session_id={CHECKOUT_SESSION_ID}`);
   params.set('cancel_url', `${origin}/?checkout=anulat#produs`);
   params.set('shipping_address_collection[allowed_countries][0]', 'RO');
   params.set('billing_address_collection', 'auto');
@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
   params.set('allow_promotion_codes', 'true');
   params.set(
     'custom_text[submit][message]',
-    `Prin plasarea comenzii accepți [Termenii și condițiile](${origin}/termeni.html) și [Politica de livrare și retur](${origin}/livrare-retur.html).`,
+    `Prin plasarea comenzii accepți [Termenii și condițiile](${origin}/termeni) și [Politica de livrare și retur](${origin}/livrare-retur).`,
   );
 
   let i = 0;

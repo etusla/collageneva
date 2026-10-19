@@ -15,6 +15,7 @@
   --sans: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body { margin: 0; font: 16px/1.65 var(--sans); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
@@ -255,6 +256,25 @@ details p { margin: 12px 0 0; color: var(--muted); }
 .wa-btn { background: #25d366; box-shadow: 0 8px 20px rgba(37, 211, 102, .3); text-align: center; }
 .wa-btn:hover { background: #1fb457; }
 @media (max-width: 520px) { .fields { grid-template-columns: 1fr; } .checkout { padding: 22px 18px; } }
+
+/* Cookie consent */
+.cc { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; display: flex; justify-content: center; pointer-events: none; }
+.cc-main { pointer-events: auto; width: min(760px, 100%); background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; box-shadow: 0 20px 60px rgba(15, 13, 50, .35); max-height: calc(100dvh - 24px); overflow: auto; }
+.cc-main h2 { font-size: 1.05rem; margin: 0 0 6px; }
+.cc-main p { margin: 0 0 14px; font-size: .9rem; color: var(--muted); }
+.cc-prefs { display: grid; gap: 8px; margin: 0 0 14px; }
+.cc-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+.cc-row span { display: grid; gap: 1px; }
+.cc-row small { color: var(--muted); font-size: .78rem; }
+.cc-row input { width: 20px; height: 20px; accent-color: var(--indigo); flex: none; }
+.cc-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+.cc-btn { font: 700 .9rem var(--sans); padding: 11px 18px; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--indigo); background: #fff; color: var(--indigo-dark); }
+.cc-btn:hover { background: var(--lav); }
+.cc-btn[data-cc="accept"], .cc-save { background: var(--indigo); color: #fff; }
+.cc-btn[data-cc="accept"]:hover, .cc-save:hover { background: var(--indigo-dark); }
+@media (max-width: 520px) { .cc-actions .cc-btn { flex: 1 1 100%; } }
+.linklike { background: none; border: 0; padding: 0; font: inherit; color: #fff; text-decoration: underline; cursor: pointer; }
+.facts { background: var(--lav); border-radius: 12px; padding: 14px 16px; font-size: .92rem; color: var(--ink); }
 
 /* Legal / success */
 .legal { padding: 48px 0 72px; max-width: 760px; }

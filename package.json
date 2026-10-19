@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "seo": "node scripts/seo.mjs",
     "dev": "wrangler pages dev public",
     "dev:worker": "wrangler dev --config wrangler.worker.toml",
     "deploy:worker": "wrangler deploy --config wrangler.worker.toml",

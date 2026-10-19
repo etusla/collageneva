@@ -1,3 +1,67 @@
+# Eva Cosmetic - search crawlers and AI search bots are welcome
 User-agent: *
 Allow: /
-Disallow: /success.html
+Disallow: /api/
+Disallow: /success
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /success
+
+Sitemap: https://collageneva.i-yldz2106.workers.dev/sitemap.xml

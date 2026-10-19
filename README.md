@@ -25,6 +25,14 @@ Test kartı: `4242 4242 4242 4242`, herhangi bir gelecek tarih ve CVC.
 4. **Custom domains** bölümünden alan adını bağla.
 5. Canlıya geçmeden önce Stripe panelinde: işletme doğrulaması, ödeme yöntemleri (kart, Apple/Google Pay), müşteri e-posta makbuzları, "başarılı ödemelerde bildirim" e-postası.
 
+## SEO / GEO
+
+- `npm run seo` canonical, Open Graph, hreflang, JSON-LD (Organization, WebSite, Product + teklifler + kargo/iade, FAQPage), `sitemap.xml`, `robots.txt` ve `llms.txt` dosyalarını üretir. Fiyatlar `public/catalog.json`'dan, SSS metni `index.html`'den gelir; **fiyat/SSS değiştirince `npm run seo` çalıştır**.
+- **Alan adı bağlanınca:** `npm run seo -- https://alanadi.ro` (tüm canonical/sitemap/OG adreslerini günceller), sonra commit + push.
+- Temiz adresler kullanılır (`/termeni`, `/livrare-retur` …): Cloudflare `.html` uzantılı adresleri 308 ile yönlendirir.
+- Yapılandırılmış veride yorum/puan işaretlemesi (Review/AggregateRating) bilerek yok: Trendyol puanı mağazanın kendi müşteri yorumu değil.
+- Çerez onayı: `public/consent.js`. Şu an sadece zorunlu depolama var; analitik/pazarlama etiketi eklersen `window.evaConsent.onChange(...)` içinde yalnızca izin varsa yükle.
+
 ## Canlıya çıkmadan önce doldurulacaklar
 
 - `[DENUMIRE FIRMĂ]`, `[CUI]`, `[Nr. Reg. Com.]`, adres, telefon, `contact@example.ro` — `index.html`, `termeni.html`, `confidentialitate.html`, `livrare-retur.html`, `success.html` içinde.
