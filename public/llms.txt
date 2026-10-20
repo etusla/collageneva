@@ -26,8 +26,8 @@
 - Adresă: Str. Prof. Nicolae Teodoreanu nr. 6, lot 2, cam. 2, România
 
 ## Pagini
-- [Prima pagină și comandă](https://collageneva.i-yldz2106.workers.dev/)
-- [Livrare și retur](https://collageneva.i-yldz2106.workers.dev/livrare-retur)
-- [Termeni și condiții](https://collageneva.i-yldz2106.workers.dev/termeni)
-- [Politica de confidențialitate](https://collageneva.i-yldz2106.workers.dev/confidentialitate)
-- [Politica de cookie-uri](https://collageneva.i-yldz2106.workers.dev/politica-cookies)
+- [Prima pagină și comandă](https://collageneva.com/)
+- [Livrare și retur](https://collageneva.com/livrare-retur)
+- [Termeni și condiții](https://collageneva.com/termeni)
+- [Politica de confidențialitate](https://collageneva.com/confidentialitate)
+- [Politica de cookie-uri](https://collageneva.com/politica-cookies)

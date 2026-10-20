@@ -64,4 +64,4 @@ Allow: /
 Disallow: /api/
 Disallow: /success
 
-Sitemap: https://collageneva.i-yldz2106.workers.dev/sitemap.xml
+Sitemap: https://collageneva.com/sitemap.xml
