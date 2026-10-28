@@ -4,6 +4,7 @@ Statik site (`public/`) + tek bir Cloudflare Pages Function (`functions/api/chec
 Sepet tarayıcıda (localStorage) tutulur; "Finalizează comanda" butonu `/api/checkout`'u çağırır,
 fonksiyon fiyatları **sadece `public/catalog.json`'dan** okuyup Stripe Checkout oturumu açar ve müşteriyi Stripe'ın ödeme sayfasına yönlendirir.
 Teslimat adresi yalnızca Romanya (`RO`) için toplanır.
+Her kart siparişi `EVA-AAGGAA-XXXX` biçiminde bir sipariş numarası alır (Stripe'ta `client_reference_id` ve ödeme açıklaması olarak görünür); `/success` sayfası `/api/order` üzerinden numarayı, ürünleri ve tutarı gösterir.
 
 ## Yerelde çalıştırma
 
@@ -35,7 +36,7 @@ Test kartı: `4242 4242 4242 4242`, herhangi bir gelecek tarih ve CVC.
 
 ## Canlıya çıkmadan önce doldurulacaklar
 
-- `[DENUMIRE FIRMĂ]`, `[CUI]`, `[Nr. Reg. Com.]`, adres, telefon, `contact@example.ro` — `index.html`, `termeni.html`, `confidentialitate.html`, `livrare-retur.html`, `success.html` içinde.
+- Firma bilgileri (SC SENEVA SRL, CUI, Reg. Com., Constanța adresi, telefon) dolduruldu; değişirse `site.config.json` + sayfalar + `npm run seo`. İletişim e-postası henüz yok.
 - `public/img/collagen5-can.jpg` ürün kutusu fotoğrafı (Trendyol ürün sayfasından kırpıldı; dağıtıcı olarak kullanım hakkın olduğunu varsayıyoruz). Stripe ödeme sayfasındaki görsel `catalog.json` içindeki `stripeImage` alanından gelir.
   Trendyol'daki diğer görselleri bilerek kullanmadık: cilt/kemik/saç gibi AB'de onaysız sağlık iddiaları ve süresi 30.01.2025'te dolmuş sertifikalar içeriyorlar.
 - Ürün etiketindeki gerçek bilgiler: içerik, porsiyon/günlük doz, besin değerleri, alerjenler, üretici/ithalatçı, parti/SKT. Site metni şu an dozu "etikete göre" diye bırakıyor.
@@ -46,5 +47,5 @@ Test kartı: `4242 4242 4242 4242`, herhangi bir gelecek tarih ve CVC.
 - Gıda takviyesi satışı için firma (SRL/PFA), DSVSA kaydı ve Sağlık Bakanlığı'na gıda takviyesi bildirimi gerekebilir; etiket Romence ve AB mevzuatına uygun olmalı. Türkiye menşeli ürün olduğu için ithalat/gümrük koşulları da geçerli.
 - AB'de onaylı olmayan sağlık iddiaları (cilt, eklem vb. faydaları) yasaktır; metinler bilerek yalnızca ürünün özelliklerini anlatıyor.
 - Hukuki sayfalar şablondur; gerçek firma bilgileriyle ve bir uzmanın gözüyle gözden geçirilmeli.
-- Site çerez/analitik kullanmıyor (çerez bandı gerekmiyor). Analitik veya reklam pikseli eklersen onay mekanizması gerekir.
+- Site şu an analitik/reklam çerezi kullanmıyor; çerez bandı (`consent.js`) yalnızca zorunlu depolamayı bildiriyor. Analitik veya piksel eklersen onaya bağla.
 - Romanya'da fiscal fatura (e-Factura) ve siparişlerin takibi için Stripe panelinden gelen siparişleri bir fatura programına bağlaman gerekecek.

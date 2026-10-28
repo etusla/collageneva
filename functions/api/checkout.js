@@ -1,6 +1,14 @@
 // POST /api/checkout  ->  { url }  (Stripe Checkout Session)
 // Prețurile vin DOAR din public/catalog.json; clientul trimite numai id + cantitate.
 
+// Același format ca la transferul bancar (public/app.js): EVA-AALLZZ-XXXX
+const newRef = () => {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const rand = crypto.randomUUID().replace(/-/g, '').slice(0, 4).toUpperCase();
+  return `EVA-${String(d.getUTCFullYear()).slice(2)}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}-${rand}`;
+};
+
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
     status,
@@ -33,8 +41,13 @@ export async function onRequestPost({ request, env }) {
   }
   if (qtyById.size === 0) return json({ error: 'Coșul este gol.' }, 400);
 
+  const ref = newRef();
   const params = new URLSearchParams();
   params.set('mode', 'payment');
+  params.set('client_reference_id', ref);
+  params.set('metadata[order_ref]', ref);
+  params.set('payment_intent_data[description]', `Comanda ${ref}`);
+  params.set('payment_intent_data[metadata][order_ref]', ref);
   params.set('locale', 'ro');
   params.set('success_url', `${origin}/success?session_id={CHECKOUT_SESSION_ID}`);
   params.set('cancel_url', `${origin}/?checkout=anulat#produs`);
