@@ -14,10 +14,41 @@
     <div class="check" aria-hidden="true">✓</div>
     <h1>Mulțumim pentru comandă!</h1>
     <p class="lead">Plata a fost confirmată. Coletul pleacă spre tine prin DPD în 1–2 zile lucrătoare și îl primești la adresa indicată.</p>
+    <div class="order-box" data-order hidden>
+      <p>Numărul comenzii: <strong data-order-ref></strong></p>
+      <ul data-order-items></ul>
+      <p>Total plătit: <strong data-order-total></strong></p>
+      <p class="muted small" data-order-email-row>Chitanța de plată a fost trimisă la <strong data-order-email></strong>. Numărul de urmărire DPD îți va fi comunicat când coletul este predat curierului.</p>
+    </div>
     <p class="muted">Ai întrebări despre comandă? Sună-ne sau scrie-ne pe WhatsApp la <a href="tel:+40793939534">+40 793 939 534</a> (telefon / WhatsApp).</p>
     <p><a class="btn" href="/">Înapoi la magazin</a></p>
   </main>
   <script>try { localStorage.removeItem('colara-cart-v1'); } catch (e) {}</script>
+  <script>
+    (async () => {
+      const id = new URLSearchParams(location.search).get('session_id');
+      if (!id) return;
+      try {
+        const res = await fetch('/api/order?session_id=' + encodeURIComponent(id));
+        if (!res.ok) return;
+        const o = await res.json();
+        if (!o.ref) return;
+        const box = document.querySelector('[data-order]');
+        box.querySelector('[data-order-ref]').textContent = o.ref;
+        const list = box.querySelector('[data-order-items]');
+        for (const it of o.items) {
+          const li = document.createElement('li');
+          li.textContent = (it.qty > 1 ? it.qty + ' × ' : '') + it.name;
+          list.append(li);
+        }
+        box.querySelector('[data-order-total]').textContent =
+          new Intl.NumberFormat('ro-RO', { style: 'currency', currency: o.currency.toUpperCase() }).format(o.total / 100);
+        if (o.email) box.querySelector('[data-order-email]').textContent = o.email;
+        else box.querySelector('[data-order-email-row]').hidden = true;
+        box.hidden = false;
+      } catch (e) {}
+    })();
+  </script>
   <script src="/consent.js" defer></script>
 </body>
 </html>

@@ -4,6 +4,7 @@ Statik site (`public/`) + tek bir Cloudflare Pages Function (`functions/api/chec
 Sepet tarayıcıda (localStorage) tutulur; "Finalizează comanda" butonu `/api/checkout`'u çağırır,
 fonksiyon fiyatları **sadece `public/catalog.json`'dan** okuyup Stripe Checkout oturumu açar ve müşteriyi Stripe'ın ödeme sayfasına yönlendirir.
 Teslimat adresi yalnızca Romanya (`RO`) için toplanır.
+Her kart siparişi `EVA-AAGGAA-XXXX` biçiminde bir sipariş numarası alır (Stripe'ta `client_reference_id` ve ödeme açıklaması olarak görünür); `/success` sayfası `/api/order` üzerinden numarayı, ürünleri ve tutarı gösterir.
 
 ## Yerelde çalıştırma
 
