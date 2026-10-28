@@ -97,7 +97,7 @@ function jsonLd() {
       logo: `${base}/img/logo-512.png`,
       telephone: cfg.phone,
       areaServed: cfg.country,
-      address: { '@type': 'PostalAddress', streetAddress: cfg.street, addressCountry: cfg.country },
+      address: { '@type': 'PostalAddress', streetAddress: cfg.street, addressLocality: cfg.locality, addressRegion: cfg.region, addressCountry: cfg.country },
       contactPoint: { '@type': 'ContactPoint', telephone: cfg.phone, contactType: 'customer service', areaServed: cfg.country, availableLanguage: ['ro'] },
     },
     { '@type': 'WebSite', '@id': `${base}/#website`, url: `${base}/`, name: `${cfg.siteName} – Collagen5`, inLanguage: 'ro-RO', publisher: { '@id': org } },
@@ -231,7 +231,7 @@ write('llms.txt', `# ${cfg.siteName} – Collagen5 (România)
 
 ## Contact
 - Telefon / WhatsApp: ${cfg.phone}
-- Adresă: ${cfg.street}, România
+- Adresă: ${cfg.street}, ${cfg.locality}, jud. ${cfg.region}, România
 
 ## Pagini
 - [Prima pagină și comandă](${base}/)
