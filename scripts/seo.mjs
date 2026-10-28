@@ -208,7 +208,7 @@ Sitemap: ${base}/sitemap.xml
 const [p1, p2, p3, p5] = catalog.products;
 write('llms.txt', `# ${cfg.siteName} – Collagen5 (România)
 
-> ${cfg.siteName} (${cfg.legalName}, CUI ${cfg.taxId}) vinde online în România suplimentul alimentar Collagen5: peptide de colagen bovin dublu hidrolizat, pulbere, 30 de porții. Livrare gratuită prin DPD, plată cu cardul sau transfer bancar.
+> ${cfg.siteName} (${cfg.legalName}, CUI ${cfg.taxId}, Nr. Reg. Com. ${cfg.regCom}) vinde online în România suplimentul alimentar Collagen5: peptide de colagen bovin dublu hidrolizat, pulbere, 30 de porții. Livrare gratuită prin DPD, plată cu cardul sau transfer bancar.
 
 ## Produs
 - Nume: Collagen5 – peptide de colagen bovin, pulbere, 30 de porții
